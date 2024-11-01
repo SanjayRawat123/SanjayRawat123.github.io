@@ -1,0 +1,33 @@
+@import '../../@core/color-variable.scss';    
+.highlight-text {
+    font-size: 1rem;
+    color: $primary-color;
+}
+
+
+.highlight-heading {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.sub-heading {
+    color: #66fcf1;
+    margin-top: 1rem;
+    margin-bottom: 5px;
+}
+
+.description-text {
+    color: #c5c6c7;
+    line-height: 1.6;
+}
+
+
+.skill-list {
+    padding-left: 2%;
+}
+
+.skill-list li {
+    color: #c5c6c7;
+    margin-bottom: 0.7rem;
+    // font-size: 1rem;
+}

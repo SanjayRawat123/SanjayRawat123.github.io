@@ -1,0 +1,87 @@
+/* General link styles */
+$primary-color: #00ff9d;
+$bg-color: #031718;
+$highlight-color: #ffeb3b;
+$scroll-border-color: rgba(255, 235, 59, 0.7);
+
+
+/* Default navbar styles */
+.navbar {
+    height: 60px;
+    padding: 0 15px;
+    background-color: $bg-color !important;
+    border-bottom: 1px solid transparent;  /* Default: No visible border */
+    transition: border-bottom 0.3s ease, background-color 0.3s ease;
+}
+
+/* Add border color when the scroll-active class is applied */
+.navbar.scroll-active {
+    border-bottom: 1px solid rgb(255, 235, 59,.7);
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+// /* Hover effect: Bottom border animation */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+
+}
+
+@media (min-width: 768px) {
+    .navbar-nav .nav-link::after {
+        background-color: $highlight-color;
+        transition: width 0.3s ease;
+    }
+}
+
+// /* On hover, expand the bottom border */
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Change color on hover */
+.navbar-nav .nav-link:hover {
+    color: $highlight-color;
+}
+
+/* Active link: Border stays visible */
+.navbar-nav .active::after {
+    width: 100%;
+}
+
+
+
+
+/* Offcanvas customization */
+.offcanvas {
+    background-color: $bg-color !important;
+    width: 250px;
+}
+
+.offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .boxed-container {
+        max-width: 100%;  /* Full width on small screens */
+    }
+}
+
+.section {
+    height: 100vh;
+    width: 100%;
+}

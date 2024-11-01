@@ -1,0 +1,133 @@
+@import '../../../@core/color-variable.scss'; 
+
+.hero-section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 100px;
+  // border-bottom: 1px solid rgba(255, 235, 59, 0.6); // Use rgba for transparency
+}
+
+.hero-section-container {
+  background-color: $bg-color;
+  min-height: 100vh;
+  color: white;
+  padding: 2rem;
+  border-radius: 0;
+  text-align: center;
+
+  .intro-text {
+    font-size: 1rem;
+    color: $primary-color;
+  }
+
+  .highlight-heading {
+    color: $highlight-color;
+  }
+
+  .display-4 {
+    font-weight: 400;
+    margin-top: 10px;
+    font-size: 2rem;
+
+    .highlight-text {
+      color: $highlight-color;
+    }
+  }
+
+  .description-text {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #bbb;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+
+  .btn-container {
+    margin-top: 30px;
+
+    .btn {
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: background-color 0.3s, transform 0.2s;
+
+      &.btn-warning {
+        background-color: $highlight-color;
+        color: $bg-color !important;
+      }
+
+      &.btn-outline-light {
+        border-color: $highlight-color;
+        background-color: transparent;
+        color: white;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid $highlight-color;
+    margin-top: 20px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  // Media Queries for Responsiveness
+  @media (min-width: 320px) {
+    .intro-text {
+        font-size: 1rem;
+      }
+  
+      .display-4 {
+        font-size: 1.5rem;
+      }
+  
+      .description-text {
+        font-size: 1rem;
+      }
+  }
+
+  @media (min-width: 768px) {
+    .profile-image {
+      width: 200px;
+      height: 200px;
+    }
+
+    .intro-text {
+      font-size: 1.8rem;
+    }
+
+    .display-4 {
+      font-size: 2.5rem;
+    }
+
+    .description-text {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .intro-text {
+      font-size: 2rem;
+    }
+
+    .display-4 {
+      font-size: 3rem;
+    }
+
+    .description-text {
+      font-size: 1.3rem;
+    }
+  }
+}

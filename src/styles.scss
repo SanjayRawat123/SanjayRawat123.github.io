@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+$primary-color: #00ff9d;
+$bg-color: #031718;
+$highlight-color: #ffeb3b;
+
+/* Resetting global styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: $bg-color;
+}
+
+/* Boxed Layout */
+.boxed-container {
+    margin-top: 100px !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box; /* Ensures border is included in width */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .boxed-container {
+        max-width: 100%;  /* Full width on small screens */
+    }
+}
+
+
+/* Optional: Add some spacing between sections */
+
