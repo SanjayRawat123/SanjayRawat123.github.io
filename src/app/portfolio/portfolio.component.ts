@@ -1,13 +1,14 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import Typed from 'typed.js';
-import { HeroSectionComponent } from "./hero-section/hero-section.component";
-import { AboutComponent } from "../about/about.component";
+import { HeroSectionComponent } from "./components/hero-section/hero-section.component";
+import { AboutComponent } from "./components/about/about.component";
+import { ProjectComponent } from "./components/project/project.component";
 @Component({
   selector: 'app-portfolio',
   standalone:true,
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss',
-  imports: [HeroSectionComponent, AboutComponent]
+  imports: [HeroSectionComponent, AboutComponent, ProjectComponent]
 })
 export class PortfolioComponent {
   isScrolled = false;
