@@ -35,13 +35,32 @@
 
 <!-- Boxed Layout Wrapper -->
 <div class="boxed-container">
-    <section>
+    <section >
         <app-hero-section></app-hero-section>
     </section>
     <section #about id="about" >
         <app-about></app-about>
     </section>
-     
+    <section id="education" style="margin-top: 100px;">
+        <h2>Education</h2>
+        <div class="education-container">
+            <!-- Degree #1 -->
+            <div class="education-item">
+                <h5>Bachelor of Technology in Electrical Engineering</h5>
+                <p><strong>Institution:</strong> Graphic Era Deemed to be University, Dehradun</p>
+                <p><strong>CGPA:</strong> 8.07</p>
+                <p><strong>Years Attended:</strong> Aug 2019 - Jul 2022</p>
+            </div>
+            <!-- Degree #2 -->
+            <div class="education-item">
+                <h5>Diploma in Electrical Engineering</h5>
+                <p><strong>Institution:</strong> Government Polytechnic Uttarkashi</p>
+                <p><strong>Percentage:</strong> 71%</p>
+                <p><strong>Years Attended:</strong> 2016 - 2019</p>
+            </div>
+        </div>
+    </section>
+    
     <section #project id="project" >
         <app-project></app-project>
     </section>
