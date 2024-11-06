@@ -37,7 +37,7 @@
 <!-- Boxed Layout Wrapper -->
 <div class="boxed-container">
     <section>
-        <app-hero-section></app-hero-section>
+        <app-hero-section (onHire)="scrollToSection('contact')"></app-hero-section>
     </section>
     <section #about id="about">
         <app-about></app-about>
@@ -68,11 +68,11 @@
     <section id="contact" #contact style="margin-top: 100px;">
         <app-contact></app-contact>
     </section>
- 
+
 
 </div>
-   <!-- Footer -->
-   <footer class="footer bg-dark text-center text-white py-4">
+<!-- Footer -->
+<footer class="footer bg-dark text-center text-white py-4">
     <div class="container">
         <p>&copy; 2024 Sanjay Singh Rawat. All rights reserved.</p>
         <p>Made with <i class="bi bi-heart-fill text-danger"></i> by Sanjay</p>

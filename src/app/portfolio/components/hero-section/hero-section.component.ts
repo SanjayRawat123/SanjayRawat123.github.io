@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import Typed from 'typed.js';
 
 @Component({
@@ -8,12 +8,13 @@ import Typed from 'typed.js';
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.scss'
 })
-export class HeroSectionComponent implements AfterViewInit{
+export class HeroSectionComponent implements AfterViewInit {
+  @Output() onHire = new EventEmitter();
   @ViewChild('typedElement', { static: true }) typedElement!: ElementRef;
 
   ngAfterViewInit() {
     const options = {
-      strings: ['MEAN Stack','Full-Stack Java'],
+      strings: ['MEAN Stack', 'Full-Stack Java'],
       typeSpeed: 300,
       backSpeed: 50,
       backDelay: 300,
