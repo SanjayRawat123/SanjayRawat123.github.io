@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-sm " [class.scroll-active]="isScrolled" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Sanjay</a>
+        <a class="navbar-brand" href="/" (click)="scrollToSection('home')">Sanjay</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar">
@@ -36,7 +36,7 @@
 
 <!-- Boxed Layout Wrapper -->
 <div class="boxed-container">
-    <section>
+    <section #home id="home">
         <app-hero-section (onHire)="scrollToSection('contact')"></app-hero-section>
     </section>
     <section #about id="about">
@@ -65,14 +65,14 @@
     <section #project id="project">
         <app-project></app-project>
     </section>
-    <section id="contact" #contact style="margin-top: 100px;">
+    <section id="contact" #contact>
         <app-contact></app-contact>
+     
     </section>
-
-
 </div>
-<!-- Footer -->
-<footer class="footer bg-dark text-center text-white py-4">
+
+   <!-- Footer -->
+   <footer class="footer bg-dark text-center text-white py-4">
     <div class="container">
         <p>&copy; 2024 Sanjay Singh Rawat. All rights reserved.</p>
         <p>Made with <i class="bi bi-heart-fill text-danger"></i> by Sanjay</p>
@@ -80,7 +80,8 @@
         <!-- Resume Buttons -->
         <div class="resume-buttons mt-3">
             <!-- Download Resume Button -->
-            <a href="assets/resume/sanjay_resume.pdf" download="sanjay_resume.pdf" class="btn btn-warning me-2 mb-2">
+            <a href="assets/resume/sanjay_resume.pdf" download="sanjay_resume.pdf"
+                class="btn btn-warning me-2 mb-2">
                 <i class="bi bi-download"></i> Download Resume
             </a>
 

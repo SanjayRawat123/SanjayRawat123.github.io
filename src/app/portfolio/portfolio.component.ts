@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import Typed from 'typed.js';
 import { HeroSectionComponent } from "./components/hero-section/hero-section.component";
 import { AboutComponent } from "./components/about/about.component";
@@ -12,31 +12,26 @@ import { ContactComponent } from "./components/contact/contact.component";
   styleUrl: './portfolio.component.scss',
   imports: [HeroSectionComponent, AboutComponent, ProjectComponent, CommonModule, ContactComponent]
 })
-export class PortfolioComponent {
+export class PortfolioComponent implements OnInit, AfterViewInit {
   isScrolled = false;
+  activeMenu: string;
+
   @ViewChild('about', { static: false }) aboutSection!: ElementRef;
   @ViewChild('project', { static: false }) projectSection!: ElementRef;
   @ViewChild('contact', { static: false }) contactSection!: ElementRef;
-  @ViewChild('offcanvas', { static: false }) offcanvas!: ElementRef;
-  activeMenu: string;
+  @ViewChild('home', { static: false }) homeSection!: ElementRef;
+
+  ngOnInit(): void {
+    this.activeMenu = 'home'; // Set default active section
+  }
+
+  ngAfterViewInit(): void {
+    this.onWindowScroll(); // Trigger initial scroll to highlight the right menu
+  }
 
   scrollToSection(section: string) {
-    let target: ElementRef | undefined;
-
-    switch (section) {
-      case 'about':
-        this.activeMenu = 'about'
-        target = this.aboutSection;
-        break;
-      case 'project':
-        this.activeMenu = 'project'
-        target = this.projectSection;
-        break;
-      case 'contact':
-        this.activeMenu = 'contact'
-        target = this.contactSection;
-        break;
-    }
+    this.activeMenu = section; // Set the active section
+    const target = this.getSectionElement(section);
 
     if (target) {
       const headerOffset = 70;
@@ -50,11 +45,40 @@ export class PortfolioComponent {
     }
   }
 
+  getSectionElement(section: string): ElementRef | undefined {
+    switch (section) {
+      case 'about':
+        return this.aboutSection;
+      case 'project':
+        return this.projectSection;
+      case 'contact':
+        return this.contactSection;
+      default:
+        return this.homeSection;
+    }
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    this.isScrolled = scrollTop > 50; // Apply class if scrolled 50px down
-    console.log("helo how are", this.isScrolled)
-  }
+    this.isScrolled = scrollTop > 50;
 
+
+    const sections = [
+      { name: 'home', element: this.homeSection },
+      { name: 'about', element: this.aboutSection },
+      { name: 'project', element: this.projectSection },
+      { name: 'contact', element: this.contactSection },
+    ];
+
+    sections.forEach(section => {
+      const sectionTop = section.element.nativeElement.offsetTop;
+      const sectionHeight = section.element.nativeElement.offsetHeight;
+
+      if (scrollTop >= sectionTop - 100 && scrollTop < sectionTop + sectionHeight) {
+        console.log(section.name)
+        this.activeMenu = section.name;
+      }
+    });
+  }
 }
