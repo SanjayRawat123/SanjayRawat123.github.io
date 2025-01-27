@@ -40,6 +40,8 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/SanjayRawat123.github.io/",
+              "outputHashing": "all",
               "budgets": [
                 {
                   "type": "initial",
